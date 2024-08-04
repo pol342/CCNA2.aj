@@ -1,3 +1,9 @@
+TROUBLESHOOTING AND DIAGNOSTICDS FOR NETWORK ENGINEERS:
+EXPERIENCE >>> CERTIFIED, LETHAL COMBO = EXP + Certified + Englishero
+ping test:
+ping 10.32.1.10   cable unplugged, wrong IP, duplicate IP: 169.254.x.x
+ping 10.32.1.4       no vlan, wrong vlan
+
 CONFIGURING OSPF AND EIGRP IN REAL WORLD DEVICES, NOT VIRTUAL
 
 task4: CONFIGURING eigrp FOR ALL switches,cms
