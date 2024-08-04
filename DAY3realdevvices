@@ -15,6 +15,7 @@ ping 10.K.K.4         Klassmate did not configure switch routing
 ping 10.K.100.8         Klassmate did not configure routing on CUCM
 ping 10.
 
+
 TASK1: STATIC ROUTING : Very Cheap, China is King. Home/End Devices.
 VS DYNAMIC ROUTING : 
 Static Routing @CUCM:
