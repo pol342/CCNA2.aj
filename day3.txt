@@ -86,7 +86,7 @@ int e0/0
 P1: Creating STATIC routes on p1 for vlan 200 and vlan 20:
 config t
 ip route  192.168.1.128 255.255.255.224 10.2.1.1 1
-ip route  192.168.1.130 255.255.255.255 10.2.1.2
+ip route  192.168.1.130 255.255.255.255 10.2.1.2 2
 do sh ip route static
 p2:
 config t
@@ -106,12 +106,14 @@ route  add 10.m.0.0 mask 255.255.0.0 10.m.1.4 -p
 How to Create Default Route Cisco/PC/EndDevices:
 p1:
 config T
-ip route 0.0.0.0  0.0.0.0 10.2.1.1
+ip route 0.0.0.0  0.0.0.0 10.2.1.1 1
+ip route 0.0.0.0  0.0.0.0 10.2.1.2 2
 do sh ip route static
 
 p2:
 config T
-ip route 0.0.0.0  0.0.0.0 10.2.1.2
+ip route 0.0.0.0  0.0.0.0 10.2.1.2 1
+ip route 0.0.0.0  0.0.0.0 10.2.1.1 2
 do sh ip route static
 
 D1:
@@ -302,7 +304,7 @@ router bgp 45
  network 45.4.5.0 mask 255.255.255.0
 end
 
-TASK4: WHY OSPF AND BGP ARE BEST FRIENDS:
+TASK4: WHY OSPF AND BGP ARE SOULMATES:
 OSPF can Inject all BGP routes int ONE ospf route: O*E2
 R1:
 CONFIG t
@@ -362,3 +364,46 @@ Howt to configure Site 2 site VPN JP to PH:
 https://
 
 TASK6: FUndamentals of Cisco network Security:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BGP
+config t
+router bgp 1
+bgp router-id 1.1.1.1
+bgp log-neighbor-changes
+neighbor 208.8.8.4 remote-as 45
+neighbor 207.7.7.2 remote-as 2
+neighbor 209.9.9.3 remote-as 3
+address-family ipv4
+neighbor 208.8.8.4 activate
+neighbor 207.7.7.2 activate
+neighbor 209.9.9.3 activate
+network 10.1.1.0 mask 255.255.255.0
+network 208.8.8.0 mask 255.255.255.0
+network 207.7.7.0 mask 255.255.255.0
+network 209.9.9.0 mask 255.255.255.0
+end
+
+
+
+
+
+
+
+
+
+
+
+
