@@ -2,7 +2,27 @@ TROUBLESHOOTING AND DIAGNOSTICDS FOR NETWORK ENGINEERS:
 EXPERIENCE >>> CERTIFIED, LETHAL COMBO = EXP + Certified + Englishero
 ping test:
 ping 10.32.1.10   cable unplugged, wrong IP, duplicate IP: 169.254.x.x
-ping 10.32.1.4       no vlan, wrong vlan
+ping 10.32.1.4         no vlan, wrong vlan sw:show vlan brief
+ping 10.32.100.4       type "IP routing" on sw
+ping 10.32.32.4        check FiberUplinkSwitch= sh run int gi 0/1
+                            "no switchport"
+ping 10.32.32.1       Edge: sh ip int brief
+                      No routing configured: CCNA job
+ping 200.0.0.32       No routing configured: CCNA job
+
+TASK1: STATIC ROUTING : Very Cheap, China is King. Home/End Devices.
+VS DYNAMIC ROUTING : 
+Static Routing @CUCM:
+config t
+ip route 0.0.0.0 0.0.0.0 10.32.100.4 1
+
+Static Routing @COREbaba:
+config t
+ip route 0.0.0.0 0.0.0.0 10.32.32.1 1
+
+Static Routing @EDGE:
+config t
+ip route 10.32.0.0 255.255.0.0 10.32.32.4
 
 CONFIGURING OSPF AND EIGRP IN REAL WORLD DEVICES, NOT VIRTUAL
 
