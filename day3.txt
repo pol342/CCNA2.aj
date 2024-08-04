@@ -378,7 +378,7 @@ TASK6: FUndamentals of Cisco network Security:
 
 
 
-BGP
+BGP @R1
 config t
 router bgp 1
 bgp router-id 1.1.1.1
