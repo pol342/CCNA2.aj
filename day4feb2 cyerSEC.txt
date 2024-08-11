@@ -274,17 +274,17 @@ STEP3: create a NAT pool with overload
 @vpnPH:
 config t
 int gi 1
-ip nat OUTSIDE
-int gi 2
 ip nat INSIDE
+int gi 2
+ip nat OUTSIDE
 int gi 3
 ip nat INSIDE
 no access-list 7
+access-list 7 permit 192.168.101.0 0.0.0.255
 access-list 7 permit 192.168.102.0 0.0.0.255
-access-list 7 permit 192.168.103.0 0.0.0.255
-ip nat inside source list 7 interface Gi 1 overload
+ip nat inside source list 7 interface Gi 2 overload
 ip nat inside source static 192.168.102.69 192.168.108.69
-ip nat inside source static 192.168.103.88 192.168.108.88
+ip nat inside source static 192.168.101.88 192.168.108.88
 end
 
 TASK10: DO YOU HAVE TO REPLACED BY A.I AT WORK? REPLACED BY
